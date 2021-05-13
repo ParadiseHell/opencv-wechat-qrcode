@@ -10,7 +10,9 @@ jobs:
     
     steps:
       - name: Show Present Work Directory
-        run : ls
+        run : |
+          pwd
+          ls
 
       - name: Clone opencv(4.5.2)
         run: |
