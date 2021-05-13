@@ -15,4 +15,4 @@ jobs:
       - name: Build WechatQRCode Android SDK with opencv
         run : |
           chmod +x ${GITHUB_WORKSPACE}/scripts/build_android_sdk.sh
-          ./${GITHUB_WORKSPACE}/scripts/build_android_sdk.sh
+          ${GITHUB_WORKSPACE}/scripts/build_android_sdk.sh
