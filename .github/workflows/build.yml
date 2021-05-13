@@ -12,9 +12,6 @@ jobs:
       - name: Show Present Work Directory
         run : pwd
 
-      - name: Install CMake
-        run: apt install cmake
-
       - name: Clone opencv(4.5.2)
         run: git clone -b 4.5.2 https://github.com/opencv/opencv.git
 
