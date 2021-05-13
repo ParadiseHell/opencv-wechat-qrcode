@@ -9,27 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Show Present Work Directory
-        run : |
-          pwd
-          ls
-
-      - name: Clone opencv(4.5.2)
-        run: |
-          git clone -b 4.5.2 https://github.com/opencv/opencv.git
-          pwd
-          ls
-
-      - name: Clone opencv_contrib(4.5.2)
-        run: |
-          git clone -b 4.5.2 https://github.com/opencv/opencv_contrib.git
-          pwd
-          ls
-
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: pwd & ls
-        run: |
-          pwd
-          ls
+      - name: Build WechatQRCode Android SDK with opencv
+        run : |
+          chmod +x ${GITHUB_WORKSPACE}/scripts/build_android_sdk.sh
+          ./${GITHUB_WORKSPACE}/scripts/build_android_sdk.sh
