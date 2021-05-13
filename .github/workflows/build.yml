@@ -2,7 +2,7 @@ name: Build opencv with Wechat QRCode
 
 on:
   push:
-    tags: ['build-.*']
+    tags: ['build-[0-9]+.[0-9]+.[0-9]+']
 
 jobs:
   build:
