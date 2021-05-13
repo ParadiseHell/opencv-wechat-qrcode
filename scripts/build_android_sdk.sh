@@ -1,4 +1,5 @@
 #!/bin/sh
+cd ${GITHUB_WORKSPACE}
 
 echo "Clone opencv"
 git clone -b 4.5.2 https://github.com/opencv/opencv.git >/dev/null
@@ -12,10 +13,13 @@ cd opencv_contrib/modules
 ls | grep -P "^((?!wechat_qrcode).)+$" | xargs -d"\n" rm -fr
 
 # 创建 build 目录进行编译
-cd ${GITHUB_WORKSPACE} && mkdir build && cd build
+cd ${GITHUB_WORKSPACE} 
+ls
+mkdir build && cd build
 
 # 编译
-python ${GITHUB_WORKSPACE}/opencv/platform/android/build_sdk.py \
+python ${GITHUB_WORKSPACE}/opencv/platforms/android/build_sdk.py \
 	--extra_modules_path=${GITHUB_WORKSPACE}/opencv_contrib/modules/ \
+	--modules_list=core,dnn,imgprc,wechat_qrcode \
+	--no_samples_build \
 	--no_ccache \
-	--build_doc
