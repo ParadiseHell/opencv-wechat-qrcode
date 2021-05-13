@@ -15,13 +15,19 @@ jobs:
       - name: Clone opencv(4.5.2)
         run: |
           git clone -b 4.5.2 https://github.com/opencv/opencv.git
+          pwd
           ls
 
       - name: Clone opencv_contrib(4.5.2)
         run: |
           git clone -b 4.5.2 https://github.com/opencv/opencv_contrib.git
+          pwd
           ls
 
       - name: Checkout Repository
         uses: actions/checkout@v2
-        run: ls
+
+      - name: pwd & ls
+        run: |
+          pwd
+          ls
