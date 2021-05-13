@@ -1,0 +1,28 @@
+name: Build opencv with Wechat QRCode
+
+on:
+  push:
+    tags: ['*']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Show Present Work Directory
+        run : pwd
+
+      - name: Install CMake
+        run: apt install cmake
+
+      - name: Clone opencv(4.5.2)
+        run: git clone -b 4.5.2 https://github.com/opencv/opencv.git
+
+      - name: Clone opencv_contrib(4.5.2)
+        run: |
+          git clone -b 4.5.2 https://github.com/opencv/opencv_contrib.git
+          cd opencv_contrib
+          pwd
+
+      - name: Checkout Repository
+        uses: actions/checkout@v2
